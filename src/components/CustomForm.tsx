@@ -1,24 +1,14 @@
 // src/components/CustomForm.tsx
 
 import React from 'react';
-import { useForm, useFieldArray } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { userFormInputValidateSchema, InvitationUserFormInput } from '../types/validationSchemas';
+import { UseFormReturn, useFieldArray } from 'react-hook-form';
+import { InvitationUserFormInput } from '../types/validationSchemas';
 
-const CustomForm: React.FC = () => {
-  const initState: { users: InvitationUserFormInput[] } = {
-    users: [
-      {
-        name: "",
-        email: "",
-      },
-    ],
-  };
-  const formMethods = useForm({
-    defaultValues: initState,
-    mode: "onChange",
-    resolver: zodResolver(userFormInputValidateSchema), // バリデーションスキーマの設定
-  });
+type Props = {
+    formMethods: UseFormReturn<{ users: InvitationUserFormInput[] }>;
+}
+
+const CustomForm = ({formMethods}: Props): React.JSX.Element => {
   const { handleSubmit, register, formState: { errors } } = formMethods;
 
   const { fields } = useFieldArray({

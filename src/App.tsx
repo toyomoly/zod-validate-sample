@@ -6,16 +6,18 @@ import { userFormInputValidateSchema, InvitationUserFormInput } from './types/va
 import CustomForm from './components/CustomForm';
 
 function App() {
-  const initState: { users: InvitationUserFormInput[] } = {
-    users: [
-      {
-        name: "",
-        email: "",
-      },
-    ],
+  const initialValues: { users: InvitationUserFormInput[] } = {
+    users: []
   };
+  for (let i = 0; i < 200; i++) {
+    initialValues.users.push({
+      name: `user${i}`,
+      email: `hoge${i}@example.com`,
+    });
+  }
+
   const formMethods = useForm({
-    defaultValues: initState,
+    defaultValues: initialValues,
     mode: "onChange",
     resolver: zodResolver(userFormInputValidateSchema), // バリデーションスキーマの設定
   });

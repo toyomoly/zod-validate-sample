@@ -15,6 +15,11 @@ function App() {
       email: `hoge${i}@example.com`,
     });
   }
+  initialValues.users[2].name = "";
+  initialValues.users[4].name = "";
+  initialValues.users[6].name = "abc123456789012345678901234567890";
+  
+  initialValues.users[4].email = "";
 
   const formMethods = useForm({
     defaultValues: initialValues,
@@ -30,7 +35,10 @@ function App() {
       <button onClick={ () => setIsShow(true) }>show</button>
       <button onClick={ () => setIsShow(false) }>hide</button>
       {isShow ? (
-        <CustomForm formMethods={formMethods} />
+        <div>
+          <h1>is Valid = {"" + formMethods.formState.isValid}</h1>
+          <CustomForm formMethods={formMethods} />
+        </div>
       ) : (
         <div>Noting</div>
       )}

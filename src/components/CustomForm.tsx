@@ -10,6 +10,7 @@ type Props = {
 
 const CustomForm = ({formMethods}: Props): React.JSX.Element => {
   const { handleSubmit, register, formState: { errors } } = formMethods;
+  console.log("get");
 
   const { fields } = useFieldArray({
     control: formMethods.control,

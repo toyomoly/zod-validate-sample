@@ -37,6 +37,7 @@ const CustomForm = ({formMethods}: Props): React.JSX.Element => {
       <button type="submit">Submit</button>
     </form>
   );
+  // console.log("delete");
 };
 
 export default CustomForm;

@@ -16,6 +16,7 @@ const CustomForm = ({formMethods}: Props): React.JSX.Element => {
     control: formMethods.control,
     name: "users",
   });
+  console.log("post");
 
   const onSubmit = (data: any) => {
     console.log(data); // フォームのデータを処理するロジックを記述

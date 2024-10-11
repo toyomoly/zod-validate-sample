@@ -21,6 +21,7 @@ const CustomForm = ({formMethods}: Props): React.JSX.Element => {
   const onSubmit = (data: any) => {
     console.log(data); // フォームのデータを処理するロジックを記述
   };
+  console.log("list");
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

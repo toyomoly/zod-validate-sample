@@ -10,15 +10,18 @@ type Props = {
 
 const CustomForm = ({formMethods}: Props): React.JSX.Element => {
   const { handleSubmit, register, formState: { errors } } = formMethods;
+  console.log("get");
 
   const { fields } = useFieldArray({
     control: formMethods.control,
     name: "users",
   });
+  console.log("post");
 
   const onSubmit = (data: any) => {
     console.log(data); // フォームのデータを処理するロジックを記述
   };
+  console.log("list");
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
